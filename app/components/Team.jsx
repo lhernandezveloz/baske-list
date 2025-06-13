@@ -37,9 +37,15 @@ function Team({ title }) {
     setTeam([]);
   }
   function removePlayerHandler(player) {
+    let myList = JSON.parse(localStorage.getItem("playerList")) || [];
+    let newPlayer = team.filter((item) => item.playerName == player);
     const players = team.filter((item) => item.playerName !== player);
     setTeam(players);
     localStorage.setItem(title, JSON.stringify(players));
+    localStorage.setItem(
+      "playerList",
+      JSON.stringify(myList.concat(newPlayer))
+    );
   }
   return (
     <>
