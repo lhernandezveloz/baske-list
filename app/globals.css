@@ -9,6 +9,9 @@
     --foreground: #ededed;
   }
 }
+.listContainer{height:400px; width:100%;
+  overflow:hidden; overflow-y:scroll;
+}
 
 html,
 body {
@@ -39,4 +42,8 @@ a {
   html {
     color-scheme: dark;
   }
+}
+
+.main-card {
+  margin: 10%;
 }

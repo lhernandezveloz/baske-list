@@ -26,6 +26,9 @@
     --button-secondary-hover: #1a1a1a;
   }
 }
+.listContainer{height:400px; width:100%;
+  overflow:hidden; overflow-y:scroll;
+}
 
 .main {
   display: flex;
@@ -159,6 +162,12 @@ a.secondary {
     align-items: center;
     justify-content: center;
   }
+}
+.teamContainer{
+    border-color: black;
+    border-width: 2px;
+    width: 30%;
+    margin: 2% 2% 2% 2%;
 }
 
 @media (prefers-color-scheme: dark) {

@@ -1,4 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap-icons/font/bootstrap-icons.css";
+import BaseComponent from "../app/components/BootstrapClient";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -20,8 +23,16 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        {children}
+        <nav className="navbar fixed-top bg-body-tertiary">
+          <div className="container-fluid">
+            <a className="navbar-brand" href="#">
+              Basketball
+            </a>
+          </div>
+        </nav>
+        <div className="main-card">{children}</div>
       </body>
+      <BaseComponent />
     </html>
   );
 }
