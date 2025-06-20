@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import Player from "./Player";
 import CardComponent from "./CardComponent";
+import SelectPlayers from "./SelectPlayers";
 
 function Team({ title }) {
   const [team, setTeam] = useState([]);
@@ -29,9 +30,15 @@ function Team({ title }) {
   }
   function deleteTeamHandler() {
     let waitingList = JSON.parse(localStorage.getItem("playerList")) || [];
+    const sortPlayers = team.sort((a, b) => {
+      const dateA = new Date(a.timeIn);
+      const dateB = new Date(b.timeIn);
+      return dateA - dateB;
+    });
+    console.log(sortPlayers);
     localStorage.setItem(
       "playerList",
-      JSON.stringify(waitingList.concat(team))
+      JSON.stringify(waitingList.concat(sortPlayers))
     );
     localStorage.setItem(title, JSON.stringify([]));
     setTeam([]);
@@ -46,6 +53,11 @@ function Team({ title }) {
       "playerList",
       JSON.stringify(myList.concat(newPlayer))
     );
+  }
+  function addPlayersHandler(players) {
+    console.log(players);
+    setTeam(team.concat(players));
+    localStorage.setItem(title, JSON.stringify(team.concat(players)));
   }
   return (
     <>
@@ -70,17 +82,20 @@ function Team({ title }) {
           </div>
         }
       >
-        <ul className={`list-group list-group-flush listContainer`}>
-          {team.length > 0 &&
-            team.map((player, i) => (
-              <Player
-                key={i}
-                player={player?.playerName}
-                timeIn={player?.timeIn}
-                remove={removePlayerHandler}
-              />
-            ))}
-        </ul>
+        <div>
+          <SelectPlayers team={title} addPlayers={addPlayersHandler} />
+          <ul className={`list-group list-group-flush listContainer`}>
+            {team.length > 0 &&
+              team.map((player, i) => (
+                <Player
+                  key={i}
+                  player={player?.playerName}
+                  timeIn={player?.timeIn}
+                  remove={removePlayerHandler}
+                />
+              ))}
+          </ul>
+        </div>
       </CardComponent>
     </>
   );

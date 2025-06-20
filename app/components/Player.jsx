@@ -5,7 +5,7 @@ function Player({ player, timeIn, remove }) {
   }
   return (
     <li className="list-group-item d-flex justify-content-between align-items-center">
-      {player}, {timeIn}
+      {player}, {new Date(timeIn).toLocaleTimeString()}
       <i className="bi bi-trash text-danger fs-4" onClick={removePlayer}></i>
     </li>
   );

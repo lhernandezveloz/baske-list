@@ -11,7 +11,7 @@ function CreatePlayer({ onSubmit }) {
     let myList = JSON.parse(localStorage.getItem("playerList")) || [];
     const newPlayer = {
       playerName: name,
-      timeIn: new Date().toLocaleTimeString(),
+      timeIn: new Date().toLocaleString(),
     };
     setName("");
     myList.push(newPlayer);
