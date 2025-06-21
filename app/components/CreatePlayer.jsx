@@ -1,8 +1,12 @@
 "use client";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 
 function CreatePlayer({ onSubmit }) {
   const [name, setName] = useState("");
+  const inputRef = useRef(null);
+  useEffect(() => {
+    inputRef.current?.focus(); // Reset the form
+  }, []);
   function onNameChange(event) {
     setName(event.target.value);
   }
@@ -53,6 +57,7 @@ function CreatePlayer({ onSubmit }) {
                 <div className="mb-3">
                   <label className="form-label">Player Name</label>
                   <input
+                    ref={inputRef}
                     onChange={onNameChange}
                     value={name}
                     type="text"
