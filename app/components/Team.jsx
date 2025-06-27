@@ -54,30 +54,34 @@ function Team({ title }) {
     localStorage.setItem(title, JSON.stringify(team.concat(players)));
   }
   return (
-    <>
+    <div className="team-container">
       <CardComponent
-        title={`${title} Team`}
+        title={
+          <div className="d-flex justify-content-between align-items-center">
+            {`${title} Team`}
+            <SelectPlayers team={title} addPlayers={addPlayersHandler} />
+          </div>
+        }
         footer={
-          <div>
+          <>
             <button
               type="button"
               onClick={deleteTeamHandler}
-              className="btn btn-danger"
+              className="btn btn-danger btn-sm"
             >
-              Delete Team
+              Delete
             </button>
             <button
               type="button"
-              className="btn btn-primary"
+              className="btn btn-primary btn-sm"
               onClick={onCreateTeamHandler}
             >
-              Generate Team
+              Generate
             </button>
-          </div>
+          </>
         }
       >
         <div>
-          <SelectPlayers team={title} addPlayers={addPlayersHandler} />
           <ul className={`list-group list-group-flush listContainer`}>
             {team.length > 0 &&
               team.map((player, i) => (
@@ -91,7 +95,7 @@ function Team({ title }) {
           </ul>
         </div>
       </CardComponent>
-    </>
+    </div>
   );
 }
 export default Team;

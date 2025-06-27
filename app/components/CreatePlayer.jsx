@@ -27,7 +27,7 @@ function CreatePlayer({ onSubmit }) {
   return (
     <div>
       <i
-        className="bi bi-person-plus-fill fs-2 d-flex justify-content-end"
+        className="bi bi-person-plus-fill fs-3 d-flex justify-content-end"
         data-bs-toggle="modal"
         data-bs-target="#exampleModal"
       />
@@ -48,7 +48,7 @@ function CreatePlayer({ onSubmit }) {
                 </h1>
                 <button
                   type="button"
-                  className="btn-close"
+                  className="btn-close btn-sm"
                   data-bs-dismiss="modal"
                   aria-label="Close"
                 ></button>
@@ -71,12 +71,12 @@ function CreatePlayer({ onSubmit }) {
                 <button
                   type="button"
                   id="cancel-btn"
-                  className="btn btn-secondary"
+                  className="btn btn-secondary btn-sm"
                   data-bs-dismiss="modal"
                 >
                   Close
                 </button>
-                <button type="submit" className="btn btn-primary">
+                <button type="submit" className="btn btn-primary btn-sm">
                   Save changes
                 </button>
               </div>

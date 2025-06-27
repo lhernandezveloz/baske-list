@@ -34,13 +34,18 @@ function Players() {
   return (
     <>
       <CardComponent
-        title="Player List"
+        title={
+          <div className="d-flex justify-content-between align-items-center">
+            Player List
+            <CreatePlayer onSubmit={handleOnCreateNewPlayer} />
+          </div>
+        }
         footer={
-          <div>
+          <div className="d-flex justify-content-between align-items-center w-100">
             <button
               type="button"
               onClick={CleanPlayerListHandler}
-              className="btn btn-danger"
+              className="btn btn-danger btn-sm"
             >
               Delete List
             </button>
@@ -49,12 +54,11 @@ function Players() {
               href="/"
               className="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover"
             >
-              Go Back
+              Go to teams
             </Link>
           </div>
         }
       >
-        <CreatePlayer onSubmit={handleOnCreateNewPlayer} />
         <div>
           <ul className={`list-group list-group-flush ${styles.listContainer}`}>
             {playerList.length > 0 &&

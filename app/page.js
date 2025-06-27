@@ -1,7 +1,6 @@
 import CardComponent from "./components/CardComponent";
 import Link from "next/link";
 import Team from "./components/Team";
-import styles from "./page.module.css";
 function Home() {
   return (
     <>
@@ -12,13 +11,13 @@ function Home() {
             href="/players"
             className="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover"
           >
-            Go To List
+            Go to player list
           </Link>
         }
       >
-        <div className="d-flex justify-content-around">
+        <div className="d-flex justify-content-between">
           <Team title="Black" />
-          <h1>VS</h1>
+          <h2>VS</h2>
           <Team title="White" />
         </div>
       </CardComponent>

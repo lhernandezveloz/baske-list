@@ -53,7 +53,7 @@ function SelectPlayers({ team, addPlayers }) {
     <div>
       <i
         onClick={loadPlayerLis}
-        className="bi bi-person-plus-fill fs-2 d-flex justify-content-end"
+        className="bi bi-person-plus-fill fs-3 d-flex justify-content-end"
         data-bs-toggle="modal"
         data-bs-target={`#exampleModal${team}`}
       />
@@ -69,12 +69,12 @@ function SelectPlayers({ team, addPlayers }) {
         <div className="modal-dialog">
           <div className="modal-content">
             <div className="modal-header">
-              <h1 className="modal-title fs-5" id="exampleModalLabel">
-                Select Players For Team {team}
-              </h1>
+              <h5 className="modal-title" id="exampleModalLabel">
+                Select players for team {team}
+              </h5>
               <button
                 type="button"
-                className="btn-close"
+                className="btn-close btn-sm"
                 data-bs-dismiss="modal"
                 aria-label="Close"
               ></button>
@@ -89,8 +89,12 @@ function SelectPlayers({ team, addPlayers }) {
                           className="form-check-input me-1"
                           type="checkbox"
                           onClick={onCheckedHandler}
-                        />
-                        <label className="form-check-label">
+                          id="select-player"
+                        />{" "}
+                        <label
+                          className="form-check-label fs-6"
+                          htmlFor="select-player"
+                        >
                           {player.playerName}
                         </label>
                       </li>
@@ -102,14 +106,14 @@ function SelectPlayers({ team, addPlayers }) {
               <button
                 type="button"
                 id={`cancel-btn-${team}`}
-                className="btn btn-secondary"
+                className="btn btn-secondary btn-sm"
                 data-bs-dismiss="modal"
               >
                 Close
               </button>
               <button
                 type="submit"
-                className="btn btn-primary"
+                className="btn btn-primary btn-sm"
                 onClick={addSelectedPlayers}
               >
                 Save changes

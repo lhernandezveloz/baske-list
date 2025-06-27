@@ -26,9 +26,6 @@
     --button-secondary-hover: #1a1a1a;
   }
 }
-.listContainer{height:400px; width:100%;
-  overflow:hidden; overflow-y:scroll;
-}
 
 .main {
   display: flex;
