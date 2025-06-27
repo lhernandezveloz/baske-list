@@ -211,7 +211,7 @@ export default function RootLayout({ children }) {
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <nav className="navbar fixed-top bg-body-tertiary">
           <div className="container-fluid">
-            <a className="navbar-brand" href="#">
+            <a className="navbar-brand fw-bold" href="#">
               Basketball
             </a>
           </div>
