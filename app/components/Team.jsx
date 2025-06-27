@@ -30,15 +30,9 @@ function Team({ title }) {
   }
   function deleteTeamHandler() {
     let waitingList = JSON.parse(localStorage.getItem("playerList")) || [];
-    const sortPlayers = team.sort((a, b) => {
-      const dateA = new Date(a.timeIn);
-      const dateB = new Date(b.timeIn);
-      return dateA - dateB;
-    });
-    console.log(sortPlayers);
     localStorage.setItem(
       "playerList",
-      JSON.stringify(waitingList.concat(sortPlayers))
+      JSON.stringify(waitingList.concat(team))
     );
     localStorage.setItem(title, JSON.stringify([]));
     setTeam([]);
