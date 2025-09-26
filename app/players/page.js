@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import Player from "../components/Player";
 import CreatePlayer from "../components/CreatePlayer";
 import CardComponent from "../components/CardComponent";
+import ConfirmComponent from "../components/ConfirmComponent";
 import styles from "./players.module.css";
 import Link from "next/link";
 function Players() {
@@ -11,6 +12,7 @@ function Players() {
   useEffect(() => {
     const fetchPlayers = () => {
       try {
+        localStorage.setItem("adminPass", "0990");
         let players = JSON.parse(localStorage.getItem("playerList")) || [];
         setPlayerList(players);
       } catch (err) {
@@ -31,6 +33,11 @@ function Players() {
     setPlayerList(players);
     localStorage.setItem("playerList", JSON.stringify(players));
   }
+  function restoreList() {
+    let players = JSON.parse(localStorage.getItem("originalList")) || [];
+    localStorage.setItem("playerList", JSON.stringify(players));
+    setPlayerList(players);
+  }
   return (
     <>
       <CardComponent
@@ -42,14 +49,23 @@ function Players() {
         }
         footer={
           <div className="d-flex justify-content-between align-items-center w-100">
-            <button
-              type="button"
-              onClick={CleanPlayerListHandler}
-              className="btn btn-danger btn-sm"
+            <div
+              className="d-flex justify-content-between align-items-center "
+              style={{ width: "27%" }}
             >
-              Delete List
-            </button>
-
+              <ConfirmComponent
+                text="Delete List"
+                titleId="delete"
+                btnClass="btn btn-danger btn-sm"
+                onSubmit={CleanPlayerListHandler}
+              />
+              <ConfirmComponent
+                btnClass="btn btn-primary btn-sm"
+                text="Restore List"
+                titleId="restore"
+                onSubmit={restoreList}
+              />
+            </div>
             <Link
               href="/"
               className="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover"

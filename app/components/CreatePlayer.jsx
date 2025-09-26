@@ -20,6 +20,7 @@ function CreatePlayer({ onSubmit }) {
     setName("");
     myList.push(newPlayer);
     localStorage.setItem("playerList", JSON.stringify(myList));
+    localStorage.setItem("originalList", JSON.stringify(myList));
     onSubmit(newPlayer);
     let element = document.getElementById("cancel-btn");
     element.click();
