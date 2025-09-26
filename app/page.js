@@ -1,9 +1,13 @@
 import CardComponent from "./components/CardComponent";
 import Link from "next/link";
 import Team from "./components/Team";
+import Head from "next/head";
 function Home() {
   return (
     <>
+      <Head>
+        <link rel="manifest" href="/manifest.json" />
+      </Head>
       <CardComponent
         title="Teams Playing"
         footer={

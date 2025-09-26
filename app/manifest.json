@@ -1,0 +1,23 @@
+{
+    "name": "Basket List",
+    "short_name": "BasketList",
+    "description": "A Basketball league App to track order",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#FF0000",
+    "orientation": "portrait",
+    "icons": [
+      {
+        "src": "/manifest-icon-192.maskable.png",
+        "sizes": "192x192",
+        "type": "image/png",
+        "purpose": "maskable"
+      },
+      {
+        "src": "manifest-icon-512.maskable.png",
+        "sizes": "512x512",
+        "type": "image/png"
+      }
+    ]
+}
